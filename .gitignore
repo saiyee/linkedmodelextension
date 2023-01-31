@@ -1,0 +1,14 @@
+.idea
+
+**/*.models.json
+data/train_models/*
+results/*
+mappings/*
+models/*
+figures
+data/*/mappings
+data/*/models
+**/*.edg
+/modelextensions*.json
+venv
+**/__pycache__
