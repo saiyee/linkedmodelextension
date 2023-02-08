@@ -1,0 +1,71 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:area plasma:has plasma:postcode ;
+    plasma:isPartOf plasma:city .
+
+plasma:classification plasma:associatedWith plasma:property .
+
+plasma:district plasma:associatedWith plasma:property .
+
+plasma:house_number plasma:isPartOf plasma:address .
+
+plasma:inspector plasma:associatedWith plasma:administration ;
+    plasma:inspects plasma:property ;
+    plasma:isA plasma:person ;
+    plasma:performs plasma:inspection .
+
+plasma:latitude plasma:definedBy plasma:geoposition .
+
+plasma:longitude plasma:definedBy plasma:geoposition .
+
+plasma:safety plasma:definedBy plasma:administration ;
+    plasma:describes plasma:inspection .
+
+plasma:street plasma:has plasma:name ;
+    plasma:isPartOf plasma:address .
+
+plasma:complaint plasma:occuredAt plasma:administration ;
+    plasma:triggers plasma:inspection .
+
+plasma:person plasma:has plasma:name ;
+    plasma:issues plasma:complaint .
+
+plasma:result plasma:issuedAt plasma:datetime .
+
+plasma:geoposition plasma:definedBy plasma:location ;
+    plasma:has plasma:geo_type .
+
+plasma:identifier plasma:associatedWith plasma:property .
+
+plasma:location plasma:has plasma:postcode ;
+    plasma:locatedAt plasma:address ;
+    plasma:locatedIn plasma:city,
+        plasma:state .
+
+plasma:address plasma:locatedIn plasma:city .
+
+plasma:administration plasma:associatedWith plasma:city ;
+    plasma:orders plasma:inspection .
+
+plasma:datetime plasma:definedBy plasma:iso_8601 .
+
+plasma:city plasma:locatedIn plasma:state .
+
+plasma:inspection plasma:completedAt plasma:datetime ;
+    plasma:has plasma:identifier,
+        plasma:result,
+        plasma:type ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:occuredAt plasma:property ;
+    plasma:scheduledAt plasma:datetime .
+
+plasma:property plasma:locatedAt plasma:location .
+

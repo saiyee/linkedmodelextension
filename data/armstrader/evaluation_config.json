@@ -1,0 +1,111 @@
+{
+    "Offer": {
+        "identifier": "Offer",
+        "default": true,
+        "target": "http://schema.org/Offer",
+        "positives": [
+            "http://schema.org/Offer"
+        ],
+        "_target_nodes": [
+             "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "_prediction_triplets": [
+            [
+                "http://schema.org/Offer",
+                "http://schema.org/name",
+                "http://www.w3.org/2001/XMLSchema#string"
+            ],
+            [
+                "http://schema.org/Offer",
+                "http://schema.org/price",
+                "http://www.w3.org/2001/XMLSchema#string"
+                ]
+        ]
+    },
+    "Offer2Place": {
+        "identifier": "Offer2",
+        "default": false,
+        "target": "http://schema.org/Offer",
+        "positives": [
+            "http://schema.org/Offer"
+        ],
+        "_target_nodes": [
+            "http://schema.org/Place"
+        ],
+        "_prediction_triplets": [
+            [
+                "http://schema.org/Offer",
+                "http://schema.org/availableAtOrFrom",
+                "http://schema.org/Place"
+            ]
+        ]
+    },
+
+    "CreativeWork": {
+        "identifier": "CreativeWork",
+        "target": "http://schema.org/CreativeWork",
+        "positives": [
+            "http://schema.org/CreativeWork"
+        ],
+        "_prediction_triplets": [
+            [
+                "http://schema.org/CreativeWork",
+                "plasma:has",
+                "http://schema.org/name"
+            ],
+            [
+                "http://schema.org/CreativeWork",
+                "plasma:has",
+                "http://schema.org/copyrightYear"
+            ],
+            [
+                "http://schema.org/CreativeWork",
+                "plasma:has",
+                "http://schema.dig.isi.edu/ontology/unidentifiedNumber"
+            ]
+        ]
+    },
+    "PersonOrOrganization": {
+        "identifier": "PersonOrOrganization",
+        "target": "http://schema.dig.isi.edu/ontology/PersonOrOrganization",
+        "positives": [
+            "http://schema.dig.isi.edu/ontology/PersonOrOrganization"
+        ],
+        "_prediction_triplets": [
+            [
+                "http://schema.dig.isi.edu/ontology/PersonOrOrganization",
+                "plasma:has",
+                "http://schema.dig.isi.edu/ontology/identifier"
+            ],
+            [
+                "http://schema.dig.isi.edu/ontology/PersonOrOrganization",
+                "plasma:has",
+                "http://schema.org/telephone"
+            ],
+            [
+                "http://schema.dig.isi.edu/ontology/PersonOrOrganization",
+                "plasma:has",
+                "http://schema.org/name"
+            ]
+        ]
+    },
+    "Place": {
+        "identifier": "Place",
+        "target": "http://schema.org/Place",
+        "positives": [
+            "http://schema.org/Place"
+        ],
+        "_prediction_triplets": [
+            [
+                "http://schema.org/Place",
+                "plasma:has",
+                "http://schema.org/name"
+            ],
+            [
+                "http://schema.org/Place",
+                "http://schema.org/address",
+                "http://schema.org/PostalAddress"
+            ]
+        ]
+    }
+}

@@ -1,0 +1,52 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:arterial plasma:isA plasma:type .
+
+plasma:bikeway plasma:builtIn plasma:building_year ;
+    plasma:has plasma:direction,
+        plasma:length,
+        plasma:name,
+        plasma:status ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:location ;
+    plasma:specifiedBy plasma:type .
+
+plasma:collector plasma:isA plasma:type .
+
+plasma:lane plasma:isA plasma:type .
+
+plasma:local_street plasma:isA plasma:type .
+
+plasma:painted_lanes plasma:isA plasma:type .
+
+plasma:protected_bike_lanes plasma:isA plasma:type .
+
+plasma:residential plasma:isA plasma:type .
+
+plasma:sec_arterial plasma:isA plasma:type .
+
+plasma:shared_lanes plasma:isA plasma:type .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:length plasma:measuredIn plasma:meter .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:geo_type,
+        plasma:street .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:street plasma:has plasma:type .
+

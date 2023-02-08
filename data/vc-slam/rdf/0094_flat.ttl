@@ -1,0 +1,46 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:description plasma:describes plasma:parking_violation .
+
+plasma:address plasma:consistsOf plasma:city,
+        plasma:state,
+        plasma:street .
+
+plasma:census_block plasma:isPartOf plasma:census_block_group .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address ;
+    plasma:locatedIn plasma:census_block,
+        plasma:census_tract,
+        plasma:district .
+
+plasma:parking_ticket plasma:cause plasma:charge ;
+    plasma:concerns plasma:parking_violation ;
+    plasma:identifiedBy plasma:identifier .
+
+plasma:latitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:latitude .
+
+plasma:longitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:longitude .
+
+plasma:parking_violation plasma:cause plasma:parking_ticket ;
+    plasma:concerns plasma:vehicle ;
+    plasma:occuredAt plasma:location,
+        plasma:time ;
+    plasma:occuredOn plasma:date .
+
+plasma:street plasma:consistsOf plasma:house_number,
+        plasma:street .
+

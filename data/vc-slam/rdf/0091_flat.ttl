@@ -1,0 +1,58 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:date plasma:isPartOf plasma:datetime .
+
+plasma:fare plasma:paidFor plasma:service .
+
+plasma:latitude plasma:isPartOf plasma:geoposition .
+
+plasma:longitude plasma:isPartOf plasma:geoposition .
+
+plasma:person plasma:locatedAt plasma:geoposition ;
+    plasma:uses plasma:device .
+
+plasma:time plasma:isPartOf plasma:datetime .
+
+plasma:time_period plasma:associatedWith plasma:datetime ;
+    plasma:limits plasma:availability .
+
+plasma:availability plasma:beginsAt plasma:datetime ;
+    plasma:limits plasma:service .
+
+plasma:classification plasma:describes plasma:service .
+
+plasma:identifier plasma:associatedWith plasma:company .
+
+plasma:phone_number plasma:isPartOf plasma:contact_information .
+
+plasma:type plasma:describes plasma:service .
+
+plasma:url plasma:isPartOf plasma:contact_information .
+
+plasma:website plasma:has plasma:url .
+
+plasma:company plasma:built plasma:device ;
+    plasma:has plasma:phone_number,
+        plasma:website ;
+    plasma:manufactures plasma:device ;
+    plasma:operates plasma:device ;
+    plasma:owns plasma:device .
+
+plasma:contact_information plasma:associatedWith plasma:company .
+
+plasma:geoposition plasma:definedBy plasma:wgs84 .
+
+plasma:device plasma:has plasma:classification,
+        plasma:type ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:geoposition ;
+    plasma:offers plasma:service .
+

@@ -1,0 +1,62 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:area plasma:associatedWith plasma:department .
+
+plasma:description plasma:describes plasma:classification .
+
+plasma:police plasma:has plasma:department ;
+    plasma:responsibleFor plasma:status ;
+    plasma:solves plasma:offense .
+
+plasma:report plasma:createdAt plasma:datetime ;
+    plasma:describes plasma:incident ;
+    plasma:identifiedBy plasma:identifier .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:incident plasma:has plasma:information ;
+    plasma:occuredAt plasma:location ;
+    plasma:occuredOn plasma:datetime ;
+    plasma:specifiedBy plasma:offense .
+
+plasma:information plasma:involves plasma:family .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address,
+        plasma:type ;
+    plasma:locatedIn plasma:district,
+        plasma:sector .
+
+plasma:address plasma:consistsOf plasma:address,
+        plasma:district,
+        plasma:zip_code .
+
+plasma:classification plasma:has plasma:code .
+
+plasma:date plasma:dependsOn plasma:status .
+
+plasma:datetime plasma:consistsOf plasma:date,
+        plasma:time .
+
+plasma:department plasma:locatedIn plasma:sector .
+
+plasma:latitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:latitude .
+
+plasma:longitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:longitude .
+
+plasma:status plasma:describes plasma:offense .
+
+plasma:offense plasma:has plasma:classification,
+        plasma:date .
+

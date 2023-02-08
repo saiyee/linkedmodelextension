@@ -1,0 +1,71 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:figure plasma:isA plasma:classification .
+
+plasma:other plasma:isA plasma:classification .
+
+plasma:painting plasma:isA plasma:classification .
+
+plasma:photographer plasma:isA plasma:person ;
+    plasma:produces plasma:photo .
+
+plasma:position plasma:describes plasma:location .
+
+plasma:sculpture plasma:isA plasma:classification .
+
+plasma:video plasma:isA plasma:classification .
+
+plasma:artist plasma:identifiedBy plasma:identifier ;
+    plasma:isA plasma:person ;
+    plasma:provides plasma:description ;
+    plasma:responsibleFor plasma:artwork .
+
+plasma:description plasma:describes plasma:artwork .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:status plasma:describes plasma:artwork .
+
+plasma:website plasma:definedBy plasma:url .
+
+plasma:address plasma:locatedIn plasma:district .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address,
+        plasma:name ;
+    plasma:locatedIn plasma:district .
+
+plasma:name plasma:locatedAt plasma:address .
+
+plasma:photo plasma:has plasma:format,
+        plasma:height,
+        plasma:name,
+        plasma:thumbnail,
+        plasma:type,
+        plasma:width ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:visualizes plasma:artwork .
+
+plasma:artwork plasma:builtIn plasma:year ;
+    plasma:designedBy plasma:artist ;
+    plasma:has plasma:photo,
+        plasma:status,
+        plasma:website ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:location ;
+    plasma:madeOf plasma:material ;
+    plasma:specifiedBy plasma:classification .
+

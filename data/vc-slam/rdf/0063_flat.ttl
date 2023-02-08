@@ -1,0 +1,30 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:wayfinding_map plasma:aimsAt plasma:pedestriant ;
+    plasma:createdIn plasma:year ;
+    plasma:has plasma:orientation ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:location .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:has plasma:geo_type ;
+    plasma:identifiedBy plasma:geoposition ;
+    plasma:isNear plasma:street ;
+    plasma:locatedIn plasma:area .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:orientation plasma:measuredIn plasma:degree .
+

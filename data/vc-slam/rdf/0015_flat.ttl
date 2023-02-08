@@ -1,0 +1,48 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:permitclassdescriptor plasma:describes plasma:buildingpermit .
+
+plasma:building plasma:identifiedBy plasma:address ;
+    plasma:locatedAt plasma:location .
+
+plasma:city plasma:identifiedBy plasma:zip_code ;
+    plasma:isPartOf plasma:state .
+
+plasma:construction plasma:finalize plasma:building ;
+    plasma:has plasma:buildingpermit .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:website plasma:definedBy plasma:url .
+
+plasma:buildingpermit plasma:has plasma:permitclass,
+        plasma:permitnumber,
+        plasma:permittype,
+        plasma:status,
+        plasma:website ;
+    plasma:isA plasma:permit ;
+    plasma:permits plasma:construction .
+
+plasma:zip_code plasma:belongTo plasma:state .
+
+plasma:address plasma:has plasma:address,
+        plasma:city,
+        plasma:zip_code ;
+    plasma:locatedIn plasma:state .
+

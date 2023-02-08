@@ -1,0 +1,43 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:city plasma:isPartOf plasma:address .
+
+plasma:department plasma:issues plasma:violation ;
+    plasma:maintains plasma:classification,
+        plasma:identifier .
+
+plasma:state plasma:isPartOf plasma:address .
+
+plasma:zip_code plasma:isPartOf plasma:address .
+
+plasma:latitude plasma:isPartOf plasma:geoposition ;
+    plasma:sameAs plasma:latitude .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address .
+
+plasma:longitude plasma:isPartOf plasma:geoposition ;
+    plasma:sameAs plasma:longitude .
+
+plasma:status plasma:associatedWith plasma:url .
+
+plasma:url plasma:associatedWith plasma:violation .
+
+plasma:violation plasma:has plasma:status ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:issuedAt plasma:date ;
+    plasma:locatedAt plasma:location ;
+    plasma:specifiedBy plasma:classification .
+
+plasma:geoposition plasma:definedBy plasma:wgs84 .
+
+plasma:address plasma:isPartOf plasma:address .
+

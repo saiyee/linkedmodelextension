@@ -1,0 +1,56 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:police plasma:has plasma:department ;
+    plasma:responsibleFor plasma:offense .
+
+plasma:brand plasma:produces plasma:bike .
+
+plasma:classification plasma:isA plasma:bike .
+
+plasma:date plasma:consistsOf plasma:day,
+        plasma:month,
+        plasma:year .
+
+plasma:datetime plasma:consistsOf plasma:date,
+        plasma:time .
+
+plasma:district plasma:identifiedBy plasma:identifier ;
+    plasma:locatedIn plasma:city .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:theft plasma:isA plasma:offense ;
+    plasma:occuredOn plasma:datetime .
+
+plasma:bike plasma:costs plasma:price ;
+    plasma:has plasma:brand,
+        plasma:colour,
+        plasma:kmh,
+        plasma:status ;
+    plasma:parkedAt plasma:location ;
+    plasma:specifiedBy plasma:classification ;
+    plasma:stolenDuring plasma:theft .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:geo_type,
+        plasma:type ;
+    plasma:locatedIn plasma:city,
+        plasma:district .
+
+plasma:offense plasma:has plasma:status ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:occuredAt plasma:location .
+

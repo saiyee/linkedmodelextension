@@ -1,0 +1,44 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:library plasma:closesAt plasma:time ;
+    plasma:has plasma:contact_information,
+        plasma:name ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:location ;
+    plasma:opensAt plasma:time .
+
+plasma:address plasma:consistsOf plasma:postcode,
+        plasma:street .
+
+plasma:contact_information plasma:specifiedBy plasma:phone_number .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude ;
+    plasma:has plasma:address .
+
+plasma:location plasma:definedBy plasma:geoposition .
+
+plasma:name plasma:offers plasma:public_wifi .
+
+plasma:latitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:latitude .
+
+plasma:longitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:longitude .
+
+plasma:time plasma:validFor plasma:friday,
+        plasma:monday,
+        plasma:saturday,
+        plasma:sunday,
+        plasma:thursday,
+        plasma:tuesday,
+        plasma:wednesday .
+

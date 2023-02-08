@@ -1,0 +1,38 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:description plasma:describes plasma:fire_code,
+        plasma:fire_code_violation .
+
+plasma:identifier plasma:identifiedBy plasma:fire_code_violation .
+
+plasma:address plasma:locatedIn plasma:ward .
+
+plasma:city plasma:has plasma:postcode ;
+    plasma:locatedIn plasma:state .
+
+plasma:geoposition plasma:consistsOf plasma:latitude .
+
+plasma:governance plasma:regulates plasma:fire_code_violation .
+
+plasma:inspector plasma:isPartOf plasma:governance .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:ward plasma:locatedIn plasma:city .
+
+plasma:fire_code_violation plasma:createdAt plasma:address ;
+    plasma:endsAt plasma:datetime ;
+    plasma:identifiedBy plasma:inspector ;
+    plasma:issuedAt plasma:datetime ;
+    plasma:locatedAt plasma:geoposition,
+        plasma:ward ;
+    plasma:violates plasma:fire_code .
+

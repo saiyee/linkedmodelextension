@@ -1,0 +1,70 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:bill plasma:createdAt plasma:datetime ;
+    plasma:has plasma:identifier,
+        plasma:price ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:involves plasma:customer,
+        plasma:utility ;
+    plasma:references plasma:utility .
+
+plasma:address plasma:consistsOf plasma:street,
+        plasma:zip_code .
+
+plasma:census_block plasma:identifiedBy plasma:identifier .
+
+plasma:consumption plasma:concerns plasma:drinking_water ;
+    plasma:measuredAt plasma:datetime ;
+    plasma:measuredIn plasma:cubic_foot,
+        plasma:gallon .
+
+plasma:cubic_foot plasma:isA plasma:unit .
+
+plasma:description plasma:identifiedBy plasma:identifier .
+
+plasma:gallon plasma:isA plasma:unit .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:street plasma:specifiedBy plasma:location,
+        plasma:orientation .
+
+plasma:streetSegment plasma:consistsOf plasma:endpoint,
+        plasma:geo_type,
+        plasma:starting_point .
+
+plasma:customer plasma:identifiedBy plasma:identifier ;
+    plasma:livesAt plasma:location ;
+    plasma:specifiedBy plasma:description .
+
+plasma:location plasma:consistsOf plasma:geo_type,
+        plasma:latitude,
+        plasma:longitude ;
+    plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address ;
+    plasma:locatedAt plasma:census_block,
+        plasma:streetSegment .
+
+plasma:utility plasma:beginsAt plasma:datetime ;
+    plasma:has plasma:consumption ;
+    plasma:specifiedBy plasma:type .
+
+plasma:latitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:latitude .
+
+plasma:longitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:longitude .
+
+plasma:datetime plasma:isBefore plasma:datetime .
+
+plasma:identifier plasma:references plasma:customer .
+

@@ -1,0 +1,63 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:count plasma:counts plasma:rental_unit .
+
+plasma:person plasma:has plasma:name ;
+    plasma:responsibleFor plasma:property .
+
+plasma:registration plasma:createdAt plasma:date ;
+    plasma:expiresAt plasma:date ;
+    plasma:has plasma:permit,
+        plasma:status,
+        plasma:website ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:involves plasma:property .
+
+plasma:building plasma:locatedAt plasma:property .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:housing_unit plasma:isPartOf plasma:building .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address .
+
+plasma:permit plasma:has plasma:description,
+        plasma:type .
+
+plasma:rental_unit plasma:isA plasma:housing_unit .
+
+plasma:website plasma:has plasma:url .
+
+plasma:city plasma:sameAs plasma:city .
+
+plasma:latitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:latitude .
+
+plasma:longitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:longitude .
+
+plasma:state plasma:sameAs plasma:state .
+
+plasma:zip_code plasma:sameAs plasma:zip_code .
+
+plasma:address plasma:consistsOf plasma:address,
+        plasma:city,
+        plasma:house_number,
+        plasma:state,
+        plasma:street,
+        plasma:zip_code ;
+    plasma:sameAs plasma:address .
+
+plasma:property plasma:has plasma:name ;
+    plasma:locatedAt plasma:location .
+

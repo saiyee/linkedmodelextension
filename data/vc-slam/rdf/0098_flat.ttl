@@ -1,0 +1,42 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:traffic_count plasma:counts plasma:traffic_volume ;
+    plasma:locatedAt plasma:location .
+
+plasma:endpoint plasma:isA plasma:location .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:municipality plasma:isA plasma:city ;
+    plasma:locatedIn plasma:county .
+
+plasma:section plasma:has plasma:direction,
+        plasma:endpoint,
+        plasma:position,
+        plasma:starting_point ;
+    plasma:locatedAt plasma:location .
+
+plasma:starting_point plasma:isA plasma:location .
+
+plasma:traffic_volume plasma:measuredAt plasma:section ;
+    plasma:measuredIn plasma:year .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:street ;
+    plasma:locatedIn plasma:county,
+        plasma:municipality .
+

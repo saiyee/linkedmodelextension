@@ -1,0 +1,63 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:bridge plasma:isPartOf plasma:traffic_infrastructure .
+
+plasma:description plasma:describes plasma:disturbanceSpecification .
+
+plasma:geo_type plasma:describes plasma:geoposition .
+
+plasma:intersection plasma:isPartOf plasma:traffic_infrastructure .
+
+plasma:midblock plasma:isPartOf plasma:traffic_infrastructure .
+
+plasma:traffic_accident plasma:isA plasma:trafficDisturbance .
+
+plasma:duration plasma:dependsOn plasma:datetime .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:measure plasma:influence plasma:magnitude ;
+    plasma:regulates plasma:traffic_infrastructure ;
+    plasma:responsibleFor plasma:roadClosure .
+
+plasma:relativeStreetLocation plasma:endsAt plasma:street ;
+    plasma:focusesOn plasma:street ;
+    plasma:has plasma:cardinalDirection ;
+    plasma:isA plasma:location ;
+    plasma:startsAt plasma:street .
+
+plasma:road plasma:isPartOf plasma:traffic_infrastructure .
+
+plasma:trafficDisturbance plasma:affects plasma:traffic_infrastructure ;
+    plasma:cause plasma:measure ;
+    plasma:endsAt plasma:datetime ;
+    plasma:has plasma:disturbanceSpecification,
+        plasma:duration,
+        plasma:identifier,
+        plasma:magnitude ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:issuedAt plasma:datetime ;
+    plasma:locatedAt plasma:location,
+        plasma:relativeStreetLocation ;
+    plasma:startsAt plasma:datetime .
+
+plasma:disturbanceSpecification plasma:has plasma:status .
+
+plasma:location plasma:definedBy plasma:geoposition .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:street plasma:isA plasma:road ;
+    plasma:locatedAt plasma:geoposition .
+

@@ -1,0 +1,43 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:information plasma:describes plasma:name .
+
+plasma:park plasma:has plasma:Washroom,
+        plasma:advisory,
+        plasma:facility,
+        plasma:name,
+        plasma:service ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:location ;
+    plasma:measures plasma:area .
+
+plasma:address plasma:consistsOf plasma:house_number,
+        plasma:street .
+
+plasma:area plasma:measuredIn plasma:hectare .
+
+plasma:district plasma:has plasma:website .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address,
+        plasma:geo_type ;
+    plasma:locatedAt plasma:street ;
+    plasma:locatedIn plasma:district .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:website plasma:definedBy plasma:url .
+

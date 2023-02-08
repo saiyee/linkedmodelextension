@@ -1,0 +1,50 @@
+{
+  "CulturalHeritageObject": {
+    "default": true,
+    "positives": [
+      "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+    ],
+    "target": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject",
+    "_prediction_triplets": [
+      [
+        "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject",
+        "http://purl.org/dc/terms/subject",
+        "http://www.w3.org/2008/05/skos#Concept"
+      ],
+      [
+        "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject",
+        "http://www.europeana.eu/schemas/edm/hasType",
+        "http://www.w3.org/2008/05/skos#Concept"
+      ],
+      [
+        "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject",
+        "plasma:has",
+        "http://purl.org/dc/terms/title"
+      ],
+      [
+        "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject",
+        "http://purl.org/dc/terms/creator",
+        "http://www.americanartcollaborative.org/ontology/Person"
+      ],
+      [
+        "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject",
+        "plasma:has",
+        "http://purl.org/dc/terms/description"
+      ]
+    ]
+  },
+  "Person": {
+    "default": true,
+    "positives": [
+      "http://www.americanartcollaborative.org/ontology/Person"
+    ],
+    "target": "http://www.americanartcollaborative.org/ontology/Person",
+    "_prediction_triplets": [
+      [
+        "http://www.americanartcollaborative.org/ontology/Person",
+            "plasma:has",
+            "http://rdvocab.info/ElementsGr2/nameOfThePerson"
+      ]
+    ]
+  }
+}

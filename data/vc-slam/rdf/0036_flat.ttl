@@ -1,0 +1,63 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:count plasma:has plasma:incident .
+
+plasma:date plasma:isPartOf plasma:datetime .
+
+plasma:street plasma:has plasma:name .
+
+plasma:time plasma:isPartOf plasma:datetime .
+
+plasma:year plasma:isPartOf plasma:datetime .
+
+plasma:day_of_week plasma:isPartOf plasma:datetime .
+
+plasma:intersection plasma:isNear plasma:location .
+
+plasma:month plasma:isPartOf plasma:datetime .
+
+plasma:name plasma:isPartOf plasma:description .
+
+plasma:neighborhood plasma:identifiedBy plasma:identifier .
+
+plasma:description plasma:describes plasma:incident,
+        plasma:intersection ;
+    plasma:isNear plasma:location .
+
+plasma:incident plasma:associatedWith plasma:fire_department ;
+    plasma:endsAt plasma:datetime ;
+    plasma:has plasma:classification,
+        plasma:description,
+        plasma:latitude,
+        plasma:longitude ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:isA plasma:emergency ;
+    plasma:occuredAt plasma:location ;
+    plasma:occuredOn plasma:datetime .
+
+plasma:latitude plasma:isPartOf plasma:geoposition ;
+    plasma:sameAs plasma:latitude .
+
+plasma:longitude plasma:isPartOf plasma:geoposition ;
+    plasma:sameAs plasma:longitude .
+
+plasma:geoposition plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:associatedWith plasma:identifier,
+        plasma:neighborhood ;
+    plasma:has plasma:address ;
+    plasma:locatedAt plasma:geoposition .
+
+plasma:datetime plasma:has plasma:day_of_week,
+        plasma:month ;
+    plasma:isAfter plasma:datetime ;
+    plasma:isBefore plasma:datetime .
+

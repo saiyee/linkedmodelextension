@@ -1,0 +1,58 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:barrier plasma:isA plasma:street_furniture .
+
+plasma:bench plasma:isA plasma:street_furniture .
+
+plasma:bikeway plasma:isPartOf plasma:traffic_infrastructure .
+
+plasma:bridge plasma:isPartOf plasma:traffic_infrastructure .
+
+plasma:organization plasma:responsibleFor plasma:project .
+
+plasma:sidewalk plasma:isPartOf plasma:traffic_infrastructure .
+
+plasma:street plasma:isPartOf plasma:traffic_infrastructure .
+
+plasma:tunnel plasma:isPartOf plasma:traffic_infrastructure .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:geo_type .
+
+plasma:program plasma:has plasma:classification .
+
+plasma:project plasma:associatedWith plasma:traffic_infrastructure ;
+    plasma:beginsAt plasma:date ;
+    plasma:completedAt plasma:date ;
+    plasma:has plasma:description,
+        plasma:name,
+        plasma:status,
+        plasma:website ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:isPartOf plasma:program .
+
+plasma:website plasma:has plasma:url .
+
+plasma:classification plasma:isPartOf plasma:classification .
+
+plasma:latitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:latitude .
+
+plasma:longitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:longitude .
+
+plasma:street_furniture plasma:isPartOf plasma:traffic_infrastructure .
+
+plasma:traffic_infrastructure plasma:locatedAt plasma:location .
+

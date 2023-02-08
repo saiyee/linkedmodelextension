@@ -1,0 +1,44 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:description plasma:describes plasma:application .
+
+plasma:file plasma:describes plasma:application ;
+    plasma:identifiedBy plasma:identifier .
+
+plasma:hearing plasma:involves plasma:application ;
+    plasma:occuredAt plasma:date .
+
+plasma:address plasma:consistsOf plasma:house_number,
+        plasma:street,
+        plasma:zip_code .
+
+plasma:community_planning plasma:needs plasma:application .
+
+plasma:easting plasma:definedBy plasma:utm .
+
+plasma:geoposition plasma:consistsOf plasma:easting,
+        plasma:northing .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address .
+
+plasma:northing plasma:definedBy plasma:utm .
+
+plasma:street plasma:specifiedBy plasma:cardinalDirection,
+        plasma:type .
+
+plasma:application plasma:affects plasma:community_planning ;
+    plasma:createdAt plasma:date ;
+    plasma:has plasma:status ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:involves plasma:location ;
+    plasma:specifiedBy plasma:type .
+

@@ -1,0 +1,33 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:street_cleaning_schedule plasma:affects plasma:street ;
+    plasma:has plasma:date,
+        plasma:information,
+        plasma:status ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:plannedFor plasma:location ;
+    plasma:startsAt plasma:date .
+
+plasma:address plasma:locatedIn plasma:district .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:street plasma:locatedAt plasma:location .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address ;
+    plasma:locatedAt plasma:district .
+

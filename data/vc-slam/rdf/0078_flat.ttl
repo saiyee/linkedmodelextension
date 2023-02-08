@@ -1,0 +1,40 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:organization plasma:has plasma:name ;
+    plasma:owns plasma:venue .
+
+plasma:address plasma:consistsOf plasma:city,
+        plasma:state,
+        plasma:street,
+        plasma:zip_code .
+
+plasma:business plasma:has plasma:name .
+
+plasma:description plasma:describes plasma:permit .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:permit plasma:has plasma:description ;
+    plasma:validFor plasma:live_entertainment,
+        plasma:venue .
+
+plasma:venue plasma:has plasma:name ;
+    plasma:isA plasma:business ;
+    plasma:locatedAt plasma:location .
+

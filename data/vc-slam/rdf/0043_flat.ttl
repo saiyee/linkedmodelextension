@@ -1,0 +1,49 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:schedule plasma:regulates plasma:radar_device .
+
+plasma:speed_display_sign plasma:contains plasma:display,
+        plasma:radar_device ;
+    plasma:generates plasma:report ;
+    plasma:has plasma:name,
+        plasma:reference ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:location .
+
+plasma:speed_limit plasma:validFor plasma:street .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:name plasma:consistsOf plasma:direction,
+        plasma:street .
+
+plasma:report plasma:endsAt plasma:datetime ;
+    plasma:startsAt plasma:datetime .
+
+plasma:display plasma:visualizes plasma:speed .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:geo_type .
+
+plasma:radar_device plasma:measures plasma:speed ;
+    plasma:triggers plasma:strobe .
+
+plasma:speed plasma:measuredIn plasma:kmh ;
+    plasma:triggers plasma:display,
+        plasma:strobe .
+
+plasma:street plasma:locatedAt plasma:location .
+

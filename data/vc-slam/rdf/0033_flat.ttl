@@ -1,0 +1,41 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:assessment plasma:createdIn plasma:year ;
+    plasma:rates plasma:property .
+
+plasma:address plasma:consistsOf plasma:house_number,
+        plasma:street .
+
+plasma:building plasma:createdIn plasma:building_year .
+
+plasma:description plasma:describes plasma:property .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address,
+        plasma:geo_type ;
+    plasma:locatedAt plasma:district .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:property plasma:has plasma:building,
+        plasma:classification,
+        plasma:description,
+        plasma:garage,
+        plasma:location,
+        plasma:lot_size,
+        plasma:reference ;
+    plasma:identifiedBy plasma:identifier .
+

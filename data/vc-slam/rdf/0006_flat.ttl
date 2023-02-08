@@ -1,0 +1,45 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:policeFacility plasma:has plasma:address,
+        plasma:name ;
+    plasma:isA plasma:facility ;
+    plasma:isPartOf plasma:police ;
+    plasma:locatedAt plasma:location ;
+    plasma:locatedIn plasma:statecity .
+
+plasma:building plasma:has plasma:building_year .
+
+plasma:facility plasma:isA plasma:building .
+
+plasma:geo_type plasma:describes plasma:geoposition .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:police plasma:isPartOf plasma:governance .
+
+plasma:address plasma:consistsOf plasma:statecity,
+        plasma:street,
+        plasma:zip_code .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude ;
+    plasma:has plasma:geo_type .
+
+plasma:statecity plasma:has plasma:zip_code .
+
+plasma:zip_code plasma:consistsOf plasma:zipCodeFive,
+        plasma:zipCodePlusFour .
+

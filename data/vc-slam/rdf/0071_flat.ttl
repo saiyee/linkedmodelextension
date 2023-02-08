@@ -1,0 +1,38 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:occupation_status plasma:describes plasma:availability ;
+    plasma:measuredIn plasma:percentage .
+
+plasma:description plasma:describes plasma:parking .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:parking plasma:consistsOf plasma:parking_space ;
+    plasma:has plasma:availability,
+        plasma:description,
+        plasma:name,
+        plasma:value ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:location .
+
+plasma:count plasma:counts plasma:parking_space ;
+    plasma:definedBy plasma:count ;
+    plasma:limits plasma:availability .
+
+plasma:availability plasma:dependsOn plasma:count .
+

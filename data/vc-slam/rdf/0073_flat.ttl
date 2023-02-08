@@ -1,0 +1,52 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:description plasma:describes plasma:location .
+
+plasma:intersection plasma:identifiedBy plasma:reference ;
+    plasma:locatedAt plasma:location .
+
+plasma:traffic_count plasma:beginsAt plasma:date ;
+    plasma:consistsOf plasma:measurement ;
+    plasma:counts plasma:traffic_volume ;
+    plasma:lasts plasma:duration ;
+    plasma:locatedAt plasma:location .
+
+plasma:duration plasma:measuredIn plasma:day .
+
+plasma:east plasma:isA plasma:cardinalDirection .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:maximum_volume plasma:occuredAt plasma:time .
+
+plasma:measurement plasma:directedTo plasma:east,
+        plasma:north,
+        plasma:south,
+        plasma:west ;
+    plasma:measures plasma:maximum_volume .
+
+plasma:north plasma:isA plasma:cardinalDirection .
+
+plasma:south plasma:isA plasma:cardinalDirection .
+
+plasma:traffic_volume plasma:occuredOn plasma:weekday .
+
+plasma:west plasma:isA plasma:cardinalDirection .
+
+plasma:location plasma:definedBy plasma:geoposition .
+
+plasma:cardinalDirection plasma:identifiedBy plasma:reference .
+

@@ -1,0 +1,88 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:company plasma:identifiedBy plasma:identifier ;
+    plasma:manufactures plasma:water_hydrant .
+
+plasma:distribution plasma:isA plasma:subsystem .
+
+plasma:east plasma:isA plasma:direction .
+
+plasma:fire_department plasma:responsibleFor plasma:fire,
+        plasma:fire_protection ;
+    plasma:uses plasma:fire_hydrant .
+
+plasma:north plasma:isA plasma:direction .
+
+plasma:south plasma:isA plasma:direction .
+
+plasma:transmission plasma:isA plasma:subsystem .
+
+plasma:west plasma:isA plasma:direction .
+
+plasma:colour plasma:definedBy plasma:GPM ;
+    plasma:dependsOn plasma:flow .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:length plasma:describes plasma:location ;
+    plasma:measuredIn plasma:meter .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:value plasma:describes plasma:street .
+
+plasma:fire_hydrant plasma:isA plasma:water_hydrant ;
+    plasma:responsibleFor plasma:fire .
+
+plasma:fire_protection plasma:isA plasma:subsystem ;
+    plasma:stops plasma:fire ;
+    plasma:uses plasma:fire_hydrant .
+
+plasma:information plasma:dependsOn plasma:type ;
+    plasma:describes plasma:fire_protection,
+        plasma:information,
+        plasma:water_hydrant ;
+    plasma:limits plasma:water ;
+    plasma:occuredAt plasma:date .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:directedTo plasma:direction ;
+    plasma:has plasma:geo_type,
+        plasma:street ;
+    plasma:locatedAt plasma:position ;
+    plasma:locatedIn plasma:district .
+
+plasma:street plasma:locatedIn plasma:district .
+
+plasma:type plasma:isA plasma:water_hydrant .
+
+plasma:water plasma:definedBy plasma:flow .
+
+plasma:flow plasma:measuredIn plasma:GPM .
+
+plasma:water_hydrant plasma:builtIn plasma:date ;
+    plasma:has plasma:colour,
+        plasma:flow,
+        plasma:information,
+        plasma:length,
+        plasma:status,
+        plasma:subsystem,
+        plasma:type,
+        plasma:value ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:location ;
+    plasma:provides plasma:water .
+
+plasma:direction plasma:sameAs plasma:direction .
+

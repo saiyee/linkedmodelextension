@@ -1,0 +1,69 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:masonrybuilding plasma:has plasma:reinforcement ;
+    plasma:isA plasma:building .
+
+plasma:neighborhood plasma:forms plasma:community ;
+    plasma:locatedIn plasma:district .
+
+plasma:residentEstimation plasma:estimates plasma:resident ;
+    plasma:isA plasma:value .
+
+plasma:residentialBuilding plasma:has plasma:resident ;
+    plasma:isA plasma:building .
+
+plasma:unreinforcedMasonryBuilding plasma:builtIn plasma:building_year ;
+    plasma:definedBy plasma:confirmationmethod ;
+    plasma:has plasma:riskcategory ;
+    plasma:isA plasma:building ;
+    plasma:needs plasma:reinforcement ;
+    plasma:risks plasma:buildingdamage .
+
+plasma:community plasma:resideIn plasma:district .
+
+plasma:earthquake plasma:inflict plasma:buildingdamage .
+
+plasma:geo_type plasma:describes plasma:geoposition .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:has plasma:address ;
+    plasma:identifiedBy plasma:geoposition .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:riskcategory plasma:dependsOn plasma:usage .
+
+plasma:storycount plasma:measures plasma:storey .
+
+plasma:address plasma:consistsOf plasma:city,
+        plasma:zip_code ;
+    plasma:has plasma:zip_code ;
+    plasma:isPartOf plasma:district .
+
+plasma:buildingdamage plasma:mitigatedBy plasma:retrofit .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude ;
+    plasma:has plasma:geo_type .
+
+plasma:building plasma:exposed plasma:earthquake ;
+    plasma:has plasma:address,
+        plasma:storycount,
+        plasma:usage ;
+    plasma:locatedAt plasma:location ;
+    plasma:locatedIn plasma:city .
+
+plasma:city plasma:locatedIn plasma:state .
+
+plasma:district plasma:has plasma:zip_code ;
+    plasma:isPartOf plasma:city .
+

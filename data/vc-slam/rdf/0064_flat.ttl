@@ -1,0 +1,53 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:address plasma:consistsOf plasma:city,
+        plasma:house_number,
+        plasma:postcode,
+        plasma:street .
+
+plasma:cultural_event plasma:locatedAt plasma:venue .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address,
+        plasma:geo_type ;
+    plasma:locatedIn plasma:area .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:owner plasma:specifiedBy plasma:municipality,
+        plasma:organization,
+        plasma:private_person .
+
+plasma:seat plasma:has plasma:count .
+
+plasma:size plasma:measuredIn plasma:square_foot .
+
+plasma:status plasma:affects plasma:cultural_event .
+
+plasma:venue plasma:createdIn plasma:year ;
+    plasma:has plasma:name,
+        plasma:owner,
+        plasma:seat,
+        plasma:size,
+        plasma:status,
+        plasma:usage,
+        plasma:website ;
+    plasma:isA plasma:business ;
+    plasma:locatedAt plasma:location ;
+    plasma:specifiedBy plasma:type .
+
+plasma:website plasma:has plasma:url .
+

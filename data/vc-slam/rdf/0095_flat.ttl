@@ -1,0 +1,52 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:company plasma:performs plasma:tow .
+
+plasma:description plasma:describes plasma:reason .
+
+plasma:address plasma:consistsOf plasma:city,
+        plasma:state,
+        plasma:street,
+        plasma:zip_code .
+
+plasma:brand plasma:produces plasma:vehicle .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address ;
+    plasma:locatedIn plasma:census_block,
+        plasma:census_block_group,
+        plasma:census_tract,
+        plasma:district .
+
+plasma:police plasma:responsibleFor plasma:district .
+
+plasma:reason plasma:cause plasma:tow .
+
+plasma:district plasma:validFor plasma:police .
+
+plasma:latitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:latitude .
+
+plasma:longitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:longitude .
+
+plasma:tow plasma:identifiedBy plasma:identifier ;
+    plasma:involves plasma:vehicle ;
+    plasma:occuredAt plasma:location ;
+    plasma:occuredOn plasma:datetime .
+
+plasma:vehicle plasma:createdAt plasma:year ;
+    plasma:has plasma:brand ;
+    plasma:registeredIn plasma:state .
+

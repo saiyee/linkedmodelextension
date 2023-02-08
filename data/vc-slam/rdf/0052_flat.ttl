@@ -1,0 +1,66 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:indicator plasma:associatedWith plasma:name .
+
+plasma:sidewalk plasma:associatedWith plasma:name .
+
+plasma:value plasma:associatedWith plasma:name ;
+    plasma:describes plasma:height .
+
+plasma:barrier plasma:limits plasma:root .
+
+plasma:classification plasma:consistsOf plasma:cultivar,
+        plasma:genus,
+        plasma:species .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:plant plasma:has plasma:root ;
+    plasma:locatedAt plasma:position ;
+    plasma:plantedOn plasma:date .
+
+plasma:position plasma:describes plasma:location .
+
+plasma:species plasma:belongTo plasma:genus .
+
+plasma:street plasma:belongTo plasma:street_block ;
+    plasma:locatedIn plasma:district .
+
+plasma:tree plasma:has plasma:barrier,
+        plasma:classification,
+        plasma:name,
+        plasma:root ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:isA plasma:plant ;
+    plasma:locatedAt plasma:location .
+
+plasma:height plasma:describes plasma:tree ;
+    plasma:measuredAt plasma:height ;
+    plasma:measuredIn plasma:foot,
+        plasma:inch .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:geo_type,
+        plasma:name ;
+    plasma:locatedAt plasma:street,
+        plasma:street_block ;
+    plasma:locatedIn plasma:district .
+
+plasma:street_block plasma:locatedIn plasma:district .
+
+plasma:name plasma:has plasma:curb ;
+    plasma:locatedIn plasma:district .
+

@@ -1,0 +1,44 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:area plasma:locatedIn plasma:district .
+
+plasma:parking_meter plasma:identifiedBy plasma:identifier ;
+    plasma:isA plasma:vending_machine ;
+    plasma:locatedAt plasma:location ;
+    plasma:paidFor plasma:paid_parking .
+
+plasma:time_period plasma:limits plasma:paid_parking ;
+    plasma:measuredIn plasma:minute .
+
+plasma:count plasma:counts plasma:paid_parking .
+
+plasma:datetime plasma:consistsOf plasma:date,
+        plasma:time .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:geo_type,
+        plasma:street ;
+    plasma:locatedIn plasma:district .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:street plasma:locatedAt plasma:position .
+
+plasma:paid_parking plasma:has plasma:classification,
+        plasma:count ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:occuredOn plasma:datetime .
+

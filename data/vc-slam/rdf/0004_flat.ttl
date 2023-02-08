@@ -1,0 +1,43 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:barrier plasma:isA plasma:road_structure .
+
+plasma:bridge plasma:isA plasma:road_structure .
+
+plasma:major_road plasma:isA plasma:road .
+
+plasma:tunnel plasma:isA plasma:road_structure .
+
+plasma:easting plasma:definedBy plasma:utm .
+
+plasma:geoposition plasma:consistsOf plasma:easting,
+        plasma:latitude,
+        plasma:longitude,
+        plasma:northing .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:locatedAt plasma:district .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:northing plasma:definedBy plasma:utm .
+
+plasma:road plasma:definedBy plasma:identifier ;
+    plasma:has plasma:name .
+
+plasma:road_structure plasma:has plasma:height_restriction,
+        plasma:reference ;
+    plasma:isA plasma:building ;
+    plasma:locatedAt plasma:location,
+        plasma:road .
+

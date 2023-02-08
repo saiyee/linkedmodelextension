@@ -1,0 +1,43 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:geoposition plasma:consistsOf plasma:location,
+        plasma:longitude .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:motorcycle plasma:isA plasma:vehicle .
+
+plasma:parking plasma:costs plasma:charge ;
+    plasma:has plasma:parking_meter,
+        plasma:time_period,
+        plasma:type ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:location ;
+    plasma:suitableFor plasma:motorcycle .
+
+plasma:location plasma:definedBy plasma:geoposition,
+        plasma:wgs84 ;
+    plasma:has plasma:geo_type ;
+    plasma:locatedAt plasma:intersection ;
+    plasma:locatedIn plasma:district .
+
+plasma:maximum_stay plasma:definedBy plasma:maximum_stay ;
+    plasma:limits plasma:parking .
+
+plasma:parking_meter plasma:has plasma:time_period ;
+    plasma:validFor plasma:credit_card .
+
+plasma:time_period plasma:affects plasma:charge,
+        plasma:maximum_stay .
+
+plasma:charge plasma:definedBy plasma:charge ;
+    plasma:paidAt plasma:parking_meter .
+

@@ -1,0 +1,47 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:description plasma:describes plasma:event,
+        plasma:incident .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:event plasma:locatedAt plasma:location ;
+    plasma:triggers plasma:incident .
+
+plasma:incident plasma:consistsOf plasma:event ;
+    plasma:createdAt plasma:datetime ;
+    plasma:endsAt plasma:datetime ;
+    plasma:has plasma:description,
+        plasma:severity,
+        plasma:status,
+        plasma:time_period,
+        plasma:type ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:involves plasma:traffic_infrastructure ;
+    plasma:locatedAt plasma:location ;
+    plasma:startsAt plasma:datetime .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:endsAt plasma:street ;
+    plasma:has plasma:geo_type,
+        plasma:street ;
+    plasma:isNear plasma:street ;
+    plasma:startsAt plasma:street .
+
+plasma:street plasma:isA plasma:endpoint,
+        plasma:starting_point ;
+    plasma:locatedAt plasma:district .
+

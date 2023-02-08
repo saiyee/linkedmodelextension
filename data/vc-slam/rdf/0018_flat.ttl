@@ -1,0 +1,58 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:count plasma:firedIn plasma:shooting .
+
+plasma:police_officer plasma:has plasma:gender,
+        plasma:injury,
+        plasma:race,
+        plasma:rank ;
+    plasma:imposedTo plasma:disciplinary_action ;
+    plasma:involvedIn plasma:shooting ;
+    plasma:servedFor plasma:time_period .
+
+plasma:record plasma:describes plasma:shooting ;
+    plasma:has plasma:classification,
+        plasma:identifier,
+        plasma:summary ;
+    plasma:identifiedBy plasma:identifier .
+
+plasma:subject plasma:armedWith plasma:weapon ;
+    plasma:has plasma:age,
+        plasma:amarment,
+        plasma:birthdate,
+        plasma:gender,
+        plasma:injury,
+        plasma:race ;
+    plasma:involvedIn plasma:shooting .
+
+plasma:address plasma:has plasma:blur .
+
+plasma:city plasma:locatedAt plasma:state .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address ;
+    plasma:locatedAt plasma:city,
+        plasma:state .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:summary plasma:describes plasma:shooting .
+
+plasma:shooting plasma:occuredAt plasma:location ;
+    plasma:occuredOn plasma:datetime,
+        plasma:duty ;
+    plasma:ratedAs plasma:classification .
+

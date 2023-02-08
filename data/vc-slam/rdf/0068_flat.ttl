@@ -1,0 +1,59 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:description plasma:describes plasma:code,
+        plasma:status .
+
+plasma:report plasma:createdAt plasma:date ;
+    plasma:describes plasma:offense ;
+    plasma:has plasma:status ;
+    plasma:identifiedBy plasma:identifier .
+
+plasma:victim plasma:has plasma:age,
+        plasma:gender,
+        plasma:race ;
+    plasma:involvedIn plasma:offense .
+
+plasma:weapon plasma:involvedIn plasma:offense ;
+    plasma:specifiedBy plasma:code,
+        plasma:type .
+
+plasma:address plasma:consistsOf plasma:street .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:type plasma:describes plasma:code .
+
+plasma:street plasma:crosses plasma:street ;
+    plasma:isNear plasma:location .
+
+plasma:area plasma:locatedIn plasma:area ;
+    plasma:references plasma:area .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address ;
+    plasma:locatedIn plasma:area .
+
+plasma:offense plasma:associatedWith plasma:modus_operandi ;
+    plasma:occuredAt plasma:location ;
+    plasma:occuredOn plasma:date,
+        plasma:time ;
+    plasma:specifiedBy plasma:code .
+
+plasma:code plasma:describes plasma:location ;
+    plasma:references plasma:building,
+        plasma:modus_operandi,
+        plasma:vehicle .
+

@@ -1,0 +1,193 @@
+{
+  "latitude": {
+    "default": true,
+    "positives": [
+      "http://tmdtkg#latitude"
+    ],
+    "target": "http://tmdtkg#latitude",
+    "_prediction_triplets": [
+      [
+        "http://tmdtkg#latitude",
+        "http://tmdtkg#definedBy",
+        "http://tmdtkg#wgs84"
+      ]
+    ]
+  },
+  "longitude": {
+    "positives": [
+      "http://tmdtkg#latitude",
+      "http://tmdtkg#longitude"
+    ],
+    "target": "http://tmdtkg#longitude",
+    "_prediction_triplets": [
+      [
+        "http://tmdtkg#longitude",
+        "http://tmdtkg#definedBy",
+        "http://tmdtkg#wgs84"
+      ]
+    ]
+  },
+  "location": {
+    "positives": [
+      "http://tmdtkg#location"
+    ],
+    "target": "http://tmdtkg#location",
+    "_prediction_triplets": [
+      [
+        "http://tmdtkg#location",
+        "http://tmdtkg#definedBy",
+        "http://tmdtkg#geoposition"
+      ],
+      [
+        "http://tmdtkg#location",
+        "http://tmdtkg#has",
+        "http://tmdtkg#address"
+      ]
+    ]
+  },
+  "geoposition": {
+    "positives": [
+      "http://tmdtkg#geoposition",
+      "http://tmdtkg#location"
+    ],
+    "target": "http://tmdtkg#location",
+    "_prediction_triplets": [
+      [
+        "http://tmdtkg#location",
+        "http://tmdtkg#definedBy",
+        "http://tmdtkg#geoposition"
+      ],
+      [
+        "http://tmdtkg#location",
+        "http://tmdtkg#has",
+        "http://tmdtkg#address"
+      ],
+      [
+        "http://tmdtkg#location",
+        "http://tmdtkg#has",
+        "http://tmdtkg#geo_type"
+      ]
+    ]
+  },
+  "geoposition2": {
+    "positives": [
+      "http://tmdtkg#geoposition",
+      "http://tmdtkg#location"
+    ],
+    "target": "http://tmdtkg#geoposition",
+    "_prediction_triplets": [
+      [
+        "http://tmdtkg#geoposition",
+        "http://tmdtkg#consistsOf",
+        "http://tmdtkg#latitude"
+      ],
+      [
+        "http://tmdtkg#geoposition",
+        "http://tmdtkg#consistsOf",
+        "http://tmdtkg#longitude"
+      ],
+      [
+        "http://tmdtkg#geoposition",
+        "http://tmdtkg#definedBy",
+        "http://tmdtkg#wgs84"
+      ]
+    ]
+  },
+  "address": {
+    "positives": [
+      "http://tmdtkg#address",
+      "http://tmdtkg#steet"
+    ],
+    "target": "http://tmdtkg#address",
+    "_prediction_triplets": [
+      [
+        "http://tmdtkg#address",
+        "http://tmdtkg#consistsOf",
+        "http://tmdtkg#city"
+      ],
+      [
+        "http://tmdtkg#address",
+        "http://tmdtkg#consistsOf",
+        "http://tmdtkg#state"
+      ],
+      [
+        "http://tmdtkg#address",
+        "http://tmdtkg#consistsOf",
+        "http://tmdtkg#house_number"
+      ],
+      [
+        "http://tmdtkg#address",
+        "http://tmdtkg#consistsOf",
+        "http://tmdtkg#street"
+      ]
+    ]
+  },
+  "building": {
+    "positives": [
+      "http://tmdtkg#building",
+      "http://tmdtkg#address"
+    ],
+    "target": "http://tmdtkg#building",
+    "_prediction_triplets": [
+      [
+        "http://tmdtkg#building",
+        "http://tmdtkg#locatedAt",
+        "http://tmdtkg#location"
+      ]
+    ]
+  },
+  "website": {
+    "positives": [
+      "http://tmdtkg#website"
+    ],
+    "target": "http://tmdtkg#website",
+    "_prediction_triplets": [
+      [
+        "http://tmdtkg#website",
+        "http://tmdtkg#has",
+        "http://tmdtkg#url"
+      ],
+      [
+        "http://tmdtkg#website",
+        "http://tmdtkg#definedBy",
+        "http://tmdtkg#url"
+      ]
+    ]
+  },
+  "business": {
+    "positives": [
+      "http://tmdtkg#business"
+    ],
+    "target": "http://tmdtkg#business",
+    "_prediction_triplets": [
+      [
+        "http://tmdtkg#business",
+        "http://tmdtkg#has",
+        "http://tmdtkg#name"
+      ],
+      [
+        "http://tmdtkg#business",
+        "http://tmdtkg#has",
+        "http://tmdtkg#business_license"
+      ]
+    ]
+  },
+  "tree": {
+    "positives": [
+      "http://tmdtkg#tree"
+    ],
+    "target": "http://tmdtkg#tree",
+    "_prediction_triplets": [
+      [
+        "http://tmdtkg#tree",
+        "http://tmdtkg#has",
+        "http://tmdtkg#root"
+      ],
+      [
+        "http://tmdtkg#tree",
+        "http://tmdtkg#isA",
+        "http://tmdtkg#plant"
+      ]
+    ]
+  }
+}

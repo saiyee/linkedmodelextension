@@ -1,0 +1,50 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:permit plasma:validFor plasma:parking_bay .
+
+plasma:easting plasma:definedBy plasma:utm .
+
+plasma:geoposition plasma:consistsOf plasma:easting,
+        plasma:latitude,
+        plasma:longitude,
+        plasma:northing ;
+    plasma:has plasma:accuracy,
+        plasma:latitude,
+        plasma:longitude .
+
+plasma:length plasma:measuredIn plasma:meter .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:postcode .
+
+plasma:northing plasma:definedBy plasma:utm .
+
+plasma:parking_meter plasma:isA plasma:vending_machine ;
+    plasma:isNear plasma:parking_bay .
+
+plasma:parking_bay plasma:has plasma:charge,
+        plasma:identifier,
+        plasma:length,
+        plasma:maximum_stay,
+        plasma:opening_hours,
+        plasma:parking_space ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:isNear plasma:parking_meter ;
+    plasma:locatedAt plasma:location ;
+    plasma:locatedIn plasma:parking_zone ;
+    plasma:suitableFor plasma:type .
+
+plasma:latitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:latitude .
+
+plasma:longitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:longitude .
+

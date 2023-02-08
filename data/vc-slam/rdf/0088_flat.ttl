@@ -1,0 +1,52 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:measurement plasma:has plasma:qualifier,
+        plasma:reference,
+        plasma:result ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:isPartOf plasma:project ;
+    plasma:measuredAt plasma:datetime,
+        plasma:depth,
+        plasma:location ;
+    plasma:measuredIn plasma:unit,
+        plasma:watershed ;
+    plasma:measures plasma:material,
+        plasma:subject,
+        plasma:water_quality ;
+    plasma:uses plasma:filter,
+        plasma:method .
+
+plasma:datetime plasma:lacks plasma:time .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:depth,
+        plasma:name,
+        plasma:reference ;
+    plasma:isPartOf plasma:waters .
+
+plasma:result plasma:measuredIn plasma:unit .
+
+plasma:subject plasma:has plasma:classification .
+
+plasma:watershed plasma:has plasma:type ;
+    plasma:isPartOf plasma:waters .
+
+plasma:depth plasma:measuredIn plasma:meter .
+
+plasma:latitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:latitude .
+
+plasma:longitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:longitude .
+

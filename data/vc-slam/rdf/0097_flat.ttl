@@ -1,0 +1,63 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:address plasma:consistsOf plasma:street ;
+    plasma:locatedIn plasma:district .
+
+plasma:co2 plasma:cause plasma:benefit ;
+    plasma:measuredIn plasma:pounds ;
+    plasma:reducedBy plasma:tree .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:height plasma:measuredIn plasma:inch .
+
+plasma:leaf plasma:has plasma:value .
+
+plasma:position plasma:describes plasma:location ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:locatedIn plasma:park .
+
+plasma:tree plasma:has plasma:benefit,
+        plasma:height,
+        plasma:leaf,
+        plasma:name ;
+    plasma:isA plasma:plant,
+        plasma:species ;
+    plasma:locatedAt plasma:location,
+        plasma:position ;
+    plasma:locatedIn plasma:park ;
+    plasma:responsibleFor plasma:co2,
+        plasma:value .
+
+plasma:latitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:latitude .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address ;
+    plasma:locatedIn plasma:district,
+        plasma:park .
+
+plasma:longitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:longitude .
+
+plasma:value plasma:cause plasma:benefit ;
+    plasma:measuredIn plasma:gallon,
+        plasma:kilowatt,
+        plasma:pounds,
+        plasma:square_foot .
+
+plasma:park plasma:locatedIn plasma:district .
+
+plasma:benefit plasma:concerns plasma:air_quality ;
+    plasma:consistsOf plasma:benefit ;
+    plasma:measuredIn plasma:dollar .
+

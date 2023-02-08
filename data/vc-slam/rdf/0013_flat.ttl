@@ -1,0 +1,42 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:measurement plasma:has plasma:air_temperature,
+        plasma:surface_temperature ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:measuredAt plasma:datetime,
+        plasma:sensor_station .
+
+plasma:air_temperature plasma:isA plasma:temperature ;
+    plasma:measuredIn plasma:fahrenheit .
+
+plasma:datetime plasma:consistsOf plasma:date,
+        plasma:time .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:geo_type .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:sensor_station plasma:has plasma:name,
+        plasma:temperature_sensor ;
+    plasma:locatedAt plasma:location .
+
+plasma:surface_temperature plasma:isA plasma:temperature ;
+    plasma:measuredIn plasma:fahrenheit .
+
+plasma:temperature_sensor plasma:isA plasma:sensor ;
+    plasma:measures plasma:temperature .
+

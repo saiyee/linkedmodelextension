@@ -1,0 +1,45 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:day plasma:isA plasma:time_period ;
+    plasma:limits plasma:value .
+
+plasma:description plasma:describes plasma:effect .
+
+plasma:range plasma:limits plasma:value .
+
+plasma:sensor_station plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:location ;
+    plasma:measures plasma:value .
+
+plasma:address plasma:consistsOf plasma:city,
+        plasma:house_number,
+        plasma:state,
+        plasma:street,
+        plasma:zip_code .
+
+plasma:datetime plasma:consistsOf plasma:time .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:severity plasma:triggers plasma:effect .
+
+plasma:value plasma:associatedWith plasma:severity ;
+    plasma:measuredAt plasma:datetime ;
+    plasma:measuredIn plasma:rain .
+

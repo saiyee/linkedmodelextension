@@ -1,0 +1,72 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:charge plasma:paidFor plasma:business_license .
+
+plasma:address plasma:consistsOf plasma:country,
+        plasma:house_number,
+        plasma:municipality,
+        plasma:postcode,
+        plasma:state,
+        plasma:street .
+
+plasma:building plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:location .
+
+plasma:code plasma:references plasma:year .
+
+plasma:company plasma:has plasma:name .
+
+plasma:datetime plasma:consistsOf plasma:date,
+        plasma:time .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:owner plasma:employs plasma:employee ;
+    plasma:has plasma:name ;
+    plasma:owns plasma:business ;
+    plasma:specifiedBy plasma:company .
+
+plasma:status plasma:validFor plasma:business_license .
+
+plasma:business plasma:has plasma:business_license,
+        plasma:name,
+        plasma:owner ;
+    plasma:locatedAt plasma:location ;
+    plasma:locatedIn plasma:building ;
+    plasma:specifiedBy plasma:type .
+
+plasma:date plasma:consistsOf plasma:day,
+        plasma:month,
+        plasma:year .
+
+plasma:identifier plasma:specifiedBy plasma:type .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address,
+        plasma:geo_type ;
+    plasma:locatedIn plasma:area .
+
+plasma:business_license plasma:expiresAt plasma:date ;
+    plasma:has plasma:code,
+        plasma:status,
+        plasma:version ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:isA plasma:license ;
+    plasma:issuedAt plasma:datetime ;
+    plasma:validFor plasma:business .
+
+plasma:type plasma:specifiedBy plasma:type .
+

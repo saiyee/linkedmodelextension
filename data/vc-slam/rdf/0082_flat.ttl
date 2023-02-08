@@ -1,0 +1,55 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:alarm_system plasma:isA plasma:classification .
+
+plasma:alcohol plasma:isA plasma:classification .
+
+plasma:count plasma:counts plasma:name .
+
+plasma:drug plasma:isA plasma:classification .
+
+plasma:false_fire_call plasma:isA plasma:classification .
+
+plasma:fire plasma:isA plasma:classification .
+
+plasma:medical plasma:isA plasma:classification .
+
+plasma:other plasma:isA plasma:classification .
+
+plasma:traffic_accident plasma:isA plasma:classification .
+
+plasma:duration plasma:measuredIn plasma:minute .
+
+plasma:fire_department plasma:responseTo plasma:incident .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:blur,
+        plasma:geo_type .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:name plasma:isPartOf plasma:fire_department ;
+    plasma:responseTo plasma:incident .
+
+plasma:time_period plasma:measuredIn plasma:minute .
+
+plasma:incident plasma:has plasma:classification,
+        plasma:duration,
+        plasma:time_period ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:occuredAt plasma:date,
+        plasma:location .
+

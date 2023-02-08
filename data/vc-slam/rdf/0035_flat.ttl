@@ -1,0 +1,46 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:breed plasma:limits plasma:domesticated_animal .
+
+plasma:license plasma:createdAt plasma:datetime ;
+    plasma:has plasma:count ;
+    plasma:involves plasma:domesticated_animal .
+
+plasma:address plasma:consistsOf plasma:city,
+        plasma:house_number,
+        plasma:state,
+        plasma:street,
+        plasma:zip_code .
+
+plasma:datetime plasma:consistsOf plasma:month,
+        plasma:year .
+
+plasma:district plasma:identifiedBy plasma:identifier .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address,
+        plasma:geo_type ;
+    plasma:locatedIn plasma:district .
+
+plasma:domesticated_animal plasma:has plasma:gender,
+        plasma:neuter_state ;
+    plasma:isA plasma:classification ;
+    plasma:livesAt plasma:location .
+
+plasma:latitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:latitude .
+
+plasma:longitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:longitude .
+

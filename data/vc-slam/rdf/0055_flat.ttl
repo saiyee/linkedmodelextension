@@ -1,0 +1,70 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:company plasma:operates plasma:building .
+
+plasma:count plasma:counts plasma:subject .
+
+plasma:record plasma:associatedWith plasma:classification ;
+    plasma:createdAt plasma:datetime ;
+    plasma:has plasma:identifier,
+        plasma:url ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:involves plasma:housing_project .
+
+plasma:address plasma:consistsOf plasma:house_number,
+        plasma:street .
+
+plasma:availability plasma:beginsAt plasma:year .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude ;
+    plasma:locatedIn plasma:district .
+
+plasma:housing_project plasma:has plasma:name,
+        plasma:status ;
+    plasma:involves plasma:building .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address,
+        plasma:geo_type .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:subject plasma:involves plasma:adaptability,
+        plasma:four_bedroom,
+        plasma:handicapped_accessible,
+        plasma:housing_unit,
+        plasma:one_bedroom,
+        plasma:sleeping_unit,
+        plasma:studio_apartment,
+        plasma:three_bedroom,
+        plasma:two_bedroom ;
+    plasma:suitableFor plasma:family,
+        plasma:individual,
+        plasma:senior .
+
+plasma:adaptability plasma:involves plasma:handicapped_accessible .
+
+plasma:building plasma:consistsOf plasma:housing_unit ;
+    plasma:has plasma:availability ;
+    plasma:locatedAt plasma:location .
+
+plasma:housing_unit plasma:specifiedBy plasma:adaptability,
+        plasma:four_bedroom,
+        plasma:handicapped_accessible,
+        plasma:one_bedroom,
+        plasma:sleeping_unit,
+        plasma:studio_apartment,
+        plasma:three_bedroom,
+        plasma:two_bedroom .
+

@@ -1,0 +1,42 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:hospital plasma:has plasma:name,
+        plasma:phone_number,
+        plasma:website ;
+    plasma:isA plasma:medical_facility ;
+    plasma:locatedAt plasma:address ;
+    plasma:locatedIn plasma:county .
+
+plasma:latitude plasma:isPartOf plasma:geoposition .
+
+plasma:longitude plasma:isPartOf plasma:geoposition .
+
+plasma:street plasma:isPartOf plasma:address .
+
+plasma:zip_code plasma:isPartOf plasma:address .
+
+plasma:location plasma:definedBy plasma:geoposition .
+
+plasma:medical_facility plasma:has plasma:name ;
+    plasma:locatedAt plasma:address,
+        plasma:city,
+        plasma:location .
+
+plasma:phone_number plasma:isPartOf plasma:contact_information .
+
+plasma:url plasma:isPartOf plasma:contact_information .
+
+plasma:website plasma:has plasma:url .
+
+plasma:geoposition plasma:definedBy plasma:geo_type .
+
+plasma:address plasma:locatedAt plasma:city .
+

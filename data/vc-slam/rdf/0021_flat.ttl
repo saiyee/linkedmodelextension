@@ -1,0 +1,41 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:artist plasma:has plasma:name ;
+    plasma:produces plasma:artwork .
+
+plasma:address plasma:consistsOf plasma:city,
+        plasma:description,
+        plasma:street .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address .
+
+plasma:artwork plasma:consistsOf plasma:material ;
+    plasma:has plasma:description,
+        plasma:name ;
+    plasma:locatedAt plasma:location ;
+    plasma:provides plasma:public_access ;
+    plasma:specifiedBy plasma:type .
+
+plasma:description plasma:describes plasma:artwork .
+
+plasma:latitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:latitude .
+
+plasma:longitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:longitude .
+
+plasma:name plasma:consistsOf plasma:first_name,
+        plasma:last_name .
+

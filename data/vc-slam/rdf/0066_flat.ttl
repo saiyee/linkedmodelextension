@@ -1,0 +1,61 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:city plasma:isA plasma:owner .
+
+plasma:city_projects plasma:isA plasma:classification .
+
+plasma:city_studio_projects plasma:isA plasma:classification .
+
+plasma:description plasma:describes plasma:project .
+
+plasma:goal plasma:describes plasma:project .
+
+plasma:greenest_city_funded_project plasma:isA plasma:classification .
+
+plasma:organization plasma:isA plasma:owner .
+
+plasma:private_person plasma:isA plasma:owner .
+
+plasma:private_project plasma:isA plasma:classification .
+
+plasma:vendor plasma:isA plasma:owner .
+
+plasma:battery_electric_vehicle plasma:isA plasma:vehicle .
+
+plasma:community_garden plasma:isA plasma:project .
+
+plasma:electric_vehicle_charging_station plasma:charges plasma:battery_electric_vehicle ;
+    plasma:isA plasma:project .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address,
+        plasma:geo_type ;
+    plasma:locatedIn plasma:district .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:website plasma:definedBy plasma:url .
+
+plasma:owner plasma:owns plasma:community_garden,
+        plasma:electric_vehicle_charging_station,
+        plasma:project .
+
+plasma:project plasma:has plasma:classification,
+        plasma:name,
+        plasma:website ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:location .
+

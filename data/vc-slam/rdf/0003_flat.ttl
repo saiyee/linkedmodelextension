@@ -1,0 +1,40 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:lighting_condition plasma:isA plasma:condition .
+
+plasma:road_condition plasma:isA plasma:condition .
+
+plasma:traffic_accident plasma:definedBy plasma:identifier ;
+    plasma:has plasma:condition,
+        plasma:severity ;
+    plasma:involves plasma:vehicle ;
+    plasma:occuredAt plasma:intersection,
+        plasma:location,
+        plasma:midblock ;
+    plasma:occuredOn plasma:date,
+        plasma:time .
+
+plasma:weather_condition plasma:isA plasma:condition .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:locatedAt plasma:region .
+
+plasma:vehicle plasma:has plasma:direction .
+
+plasma:latitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:latitude .
+
+plasma:longitude plasma:definedBy plasma:wgs84 ;
+    plasma:sameAs plasma:longitude .
+

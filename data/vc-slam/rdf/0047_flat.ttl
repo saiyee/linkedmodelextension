@@ -1,0 +1,58 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:classification plasma:describes plasma:type .
+
+plasma:high_rise_apartment plasma:isA plasma:type .
+
+plasma:house plasma:isA plasma:type .
+
+plasma:information plasma:describes plasma:building .
+
+plasma:low_rise_apartment plasma:isA plasma:type .
+
+plasma:mid_rise_apartment plasma:isA plasma:type .
+
+plasma:police plasma:has plasma:department .
+
+plasma:walk_up plasma:isA plasma:type .
+
+plasma:count plasma:counts plasma:housing_unit,
+        plasma:market_unit .
+
+plasma:department plasma:locatedIn plasma:value .
+
+plasma:description plasma:describes plasma:building .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:geo_type,
+        plasma:postcode ;
+    plasma:locatedIn plasma:value .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:rental_unit plasma:isPartOf plasma:housing_unit .
+
+plasma:building plasma:builtIn plasma:building_year ;
+    plasma:contains plasma:housing_unit,
+        plasma:rental_unit ;
+    plasma:has plasma:count,
+        plasma:description,
+        plasma:name,
+        plasma:type,
+        plasma:value ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:location .
+

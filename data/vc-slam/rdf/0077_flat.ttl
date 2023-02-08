@@ -1,0 +1,61 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:battery_electric_vehicle plasma:isA plasma:vehicle .
+
+plasma:brand plasma:manufactures plasma:vehicle .
+
+plasma:county plasma:locatedIn plasma:city .
+
+plasma:district plasma:locatedIn plasma:city .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:license plasma:identifiedBy plasma:identifier .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:geo_type ;
+    plasma:locatedIn plasma:city,
+        plasma:county,
+        plasma:district,
+        plasma:state .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:owner plasma:isA plasma:person .
+
+plasma:person plasma:livesAt plasma:location .
+
+plasma:plug_in_hybrid_electric_vehicle plasma:isA plasma:vehicle .
+
+plasma:range plasma:measuredIn plasma:mile .
+
+plasma:identifier plasma:contains plasma:brand,
+        plasma:type,
+        plasma:year .
+
+plasma:city plasma:has plasma:zip_code ;
+    plasma:locatedIn plasma:state .
+
+plasma:type plasma:builtIn plasma:year ;
+    plasma:consistsOf plasma:battery_electric_vehicle,
+        plasma:plug_in_hybrid_electric_vehicle .
+
+plasma:vehicle plasma:costs plasma:price ;
+    plasma:has plasma:license,
+        plasma:owner,
+        plasma:range,
+        plasma:type ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:isA plasma:type .
+

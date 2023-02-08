@@ -1,0 +1,63 @@
+@prefix neovoc: <neo4j://vocabulary#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plasma: <http://tmdtkg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://tmdtsm#> .
+@prefix uo: <http://tmdtuo#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plasma:city plasma:isA plasma:owner .
+
+plasma:count plasma:counts plasma:food_growing,
+        plasma:tree .
+
+plasma:nut plasma:isA plasma:fruit,
+        plasma:type .
+
+plasma:organization plasma:has plasma:website ;
+    plasma:responsibleFor plasma:food_growing .
+
+plasma:private plasma:isA plasma:owner .
+
+plasma:private_person plasma:isA plasma:owner .
+
+plasma:transit_authority plasma:isA plasma:owner .
+
+plasma:address plasma:consistsOf plasma:direction,
+        plasma:street,
+        plasma:type,
+        plasma:value ;
+    plasma:locatedIn plasma:area .
+
+plasma:community_garden plasma:contains plasma:food_growing ;
+    plasma:createdIn plasma:year ;
+    plasma:has plasma:email_address,
+        plasma:name,
+        plasma:owner,
+        plasma:tree ;
+    plasma:identifiedBy plasma:identifier ;
+    plasma:locatedAt plasma:location .
+
+plasma:fruit plasma:isA plasma:type .
+
+plasma:geoposition plasma:consistsOf plasma:latitude,
+        plasma:longitude .
+
+plasma:latitude plasma:definedBy plasma:wgs84 .
+
+plasma:location plasma:definedBy plasma:geoposition ;
+    plasma:has plasma:address,
+        plasma:geo_type ;
+    plasma:locatedIn plasma:area .
+
+plasma:longitude plasma:definedBy plasma:wgs84 .
+
+plasma:website plasma:definedBy plasma:url .
+
+plasma:tree plasma:performs plasma:food_growing ;
+    plasma:specifiedBy plasma:type .
+
+plasma:owner plasma:owns plasma:community_garden .
+
